@@ -51,5 +51,30 @@ public class GeometricObject {
 	public Vertex getPos() {
 		return pos;
 	}
+	
+	public boolean isLargerThan(GeometricObject that) {
+		return this.area() > that.area();
+	}
+	public void moveTo(Vertex pos) {
+		this.pos=pos;}
+	
+	public void moveTo(double x, double y) {
+		moveTo(new Vertex(x,y));
+	}
+	
+	public void move(Vertex v) {
+		moveTo(pos.add(v));
+	}
+	
+	public boolean equals(Object thatObject) {
+		if(thatObject instanceof GeometricObject) {
+			GeometricObject that = (GeometricObject)thatObject;
+			return that.width==this.width 
+					&& that.height==this.height 
+					&& this.pos.equals(that.pos);
+		}
+		return false;
+	}
+	
 
 }
