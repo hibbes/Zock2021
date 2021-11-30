@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
 
+import util.ShowInFrame;
 
 public class PaintableArrayPanel extends SizedPanel {
 
@@ -11,8 +14,10 @@ public class PaintableArrayPanel extends SizedPanel {
 	} 
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Paintable pa[] = {new PaintableOval(100,50,30,50), new PaintableOval(100,50,130,150)};
+				
+		ShowInFrame.show("OvaleArray", new PaintableArrayPanel(pa));
+		
 	}
 
 }
