@@ -11,13 +11,15 @@ public class SimpleButton extends JPanel {
 	
 	SimpleButton(){
 		add(b1);
+		add(b2);
+		add(b3);
 		add(l);
 	}
 	
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		
 		ShowInFrame.show(new SimpleButton());
 		
-	}
+	} */
 
 }
