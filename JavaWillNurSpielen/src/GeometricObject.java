@@ -28,7 +28,7 @@ public class GeometricObject {
 	}
 	
 	public GeometricObject(Vertex pos) {
-		this(0,0,pos,new Color(0,0,0));
+		this(0,0,pos, new Color(0,0,0));
 	}	
 	
 	public GeometricObject(double w) {
