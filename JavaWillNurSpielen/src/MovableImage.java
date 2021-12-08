@@ -21,9 +21,17 @@ public class MovableImage extends GeometricImage implements GameObject {
 		deltaPos = new Vertex(dX, dY);
 	}
 
-	public MovableImage(ImageIcon icon, String name, double x, double y, double dX, double dY) {
-		super(name, x, y);
+	public MovableImage(ImageIcon icon, double x, double y, double dX, double dY) {
+		super(icon, x, y);
 		deltaPos = new Vertex(dX, dY);
+	}
+
+	public void move() {
+		pos.addMod(deltaPos);
+	}
+
+	public void turn() {
+		deltaPos.skalarMultMod(-2);
 	}
 
 	public boolean isLeftOf(GameObject that) {
@@ -35,32 +43,18 @@ public class MovableImage extends GeometricImage implements GameObject {
 	}
 
 	public boolean touches(GameObject that) {
-		if (this.isLeftOf(that)) {
+		if (this.isLeftOf(that))
 			return false;
-		}
-		if (that.isLeftOf(this)) {
+		if (that.isLeftOf(this))
 			return false;
-		}
-		if (this.isAbove(that)) {
+		if (this.isAbove(that))
 			return false;
-		}
-		if (that.isAbove(this)) {
+		if (that.isAbove(this))
 			return false;
-		}
 		return true;
 	}
 
 	public boolean isLargerThan(GameObject that) {
-		return this.getWidth() * this.getHeight() > that.getWidth() * that.getHeight();
-
+		return getWidth() * getHeight() > that.getWidth() * that.getHeight();
 	}
-
-	public void move() {
-		pos.addMod(deltaPos);
-	}
-
-	public void turn() {
-		deltaPos.skalarMultMod(-1);
-	}
-
 }
